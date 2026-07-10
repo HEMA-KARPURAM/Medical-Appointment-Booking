@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hospital Payment Page</title>
+    <style>
+        *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+            body{
+                margin:0;
+                background-color: silver;
+                background-image: url("26841.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow-x: hidden;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+            .logo img {
+                width: 50px;
+                margin-right: 15px;
+            }
+            .logo h1 {
+                font-size: 28px;
+                color: white;
+                margin: 0;
+                text-shadow: 1px 1px 2px white;
+            }
+            header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #004d99;
+                padding: 15px 30px;
+                width: 100%;
+            }
+            main{
+                margin-top:20px;
+                margin-left: 25%;
+                border-radius: 10px;
+                border: 1px;
+                padding: 20px;
+                max-width: 750px;
+                box-shadow: 2px 2px 5px #004d99;
+                backdrop-filter: blur(14px);
+                height: auto;
+                margin-bottom: 12.5%;
+            }
+            .payment-details {
+                display: none;
+                margin-top: 10px;
+            }
+            h1{
+                color:#004d99;
+                text-align: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-shadow: 1px 1px 2px #004d99;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #393737;
+                margin-top: 10px;
+                font-family: 'Lucida Sans';
+                margin-left: 12%;
+            }
+           input,select,button {
+            width: 45%;
+            margin-top: 8px;
+            margin-left: 30%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            }
+            button {
+                background-color: rgba(0, 185, 241, 0.534);
+                color: white;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                width:25%;
+                margin-left: 40%;
+            }
+            button:hover{
+                background-color:#0056b3 ;       
+            }
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                justify-content: center;
+                align-items: center;
+            }
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .modal-content {
+                position: relative;
+                margin: 15% auto;
+                padding: 20px;
+                width: 80%;
+                max-width: 400px;
+                background-color: white;
+                border-radius: 8px;
+            }
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 18px;
+                cursor: pointer;
+            }
+            footer {
+                background-color: #004d99;
+                color: white;
+                text-align: center;
+                padding: 10px;
+                position:relative;
+                bottom: 0;
+                left:0;
+                right:0;
+            }
+    </style>
+</head>
+<body>
+    <header class="h2">
+        <div class="logo">
+            <img src="hospitallogo.jpeg" alt="Hospital Logo">
+            <h1>HARRY MultiSpeciality Hospital</h1>
+        </div>
+    </header>
+    <main>
+        <h1>Payment details:</h1>
+        <form id="paymentForm">
+            <label for="department">Department:</label>
+            <select id="department" onchange="  autoFill()" required>
+                <option value="">Select Department</option>
+                <option value="pediatrics">Pediatrics</option>
+                <option value="oncology">Oncology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="gynecology">Gynecology</option>
+            </select>
+
+            <label for="billAmount">Bill Amount ($):</label>
+            <input type="number" id="billAmount" name="billAmount" min="200" required>
+
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="" disabled selected>Select Payment Method</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="debitCard">Debit Card</option>
+                <option value="upi">UPI</option>
+            </select><br>
+
+            <div id="cardDetails" class="payment-details">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number"><br><br>
+        
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY"><br><br>
+        
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Enter CVV"><br><br>
+            </div>
+
+            <div id="upiScanner" class="payment-details">
+                <center><p>Scan the QR code to pay via UPI:</p></center><br>
+                <center><img src="qr.jpg" alt="UPI QR Code" width="150"></center>
+            </div><br><br>
+            <button id="openModalBtn" type="submit" onclick="">Submit Payment</button>
+        </form>
+    </main>
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p id="modalMessage">Payment Successful!</p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 SAHAJ MultiSpeciality Hospital | All rights reserved</p>
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn"></span>
+            <p id="modalMessage">Payment Successful!</p>
+        </div>
+    </div>
+<script>
+     
+     function autoFill() {
+    const selectedOption = document.getElementById('department').value;
+    const data = {
+        pediatrics: "200",
+        oncology: "250",
+        Dermatology: "250",
+        Cardiology: "250",
+        gynecology: "200"
+    };
+    if (data[selectedOption]) {
+        document.getElementById('billAmount').value = data[selectedOption];
+    } else {
+        document.getElementById('billAmount').value = '';
+    }
+}
+
+document.getElementById("paymentForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const patientName = document.getElementById("patientName").value;
+    const billAmount = document.getElementById("billAmount").value;
+    const paymentMethod = document.getElementById("paymentMethod").value;
+    if (patientName && billAmount && paymentMethod) {
+        const successModal = document.getElementById("successModal");
+        const modalMessage = document.getElementById("modalMessage");
+        modalMessage.innerText = `Payment Successful for ${patientName}! Amount: $${billAmount}`;
+        successModal.style.display = "flex";
+        document.getElementById("paymentForm").reset();
+    } else {
+        alert("Please fill in all fields.");
+    }
+});
+// Get elements
+const openModalBtn = document.getElementById('openModalBtn');
+const successModal = document.getElementById('successModal');
+const closeBtn = document.querySelector('.close-btn');
+
+// Open the modal on button click
+openModalBtn.addEventListener('click', function() {
+    successModal.style.display = 'block';
+});
+
+// Close the modal when the close button is clicked
+closeBtn.addEventListener('click', function() {
+    successModal.style.display = 'none';
+});
+
+// Close the modal when clicking outside the modal content
+window.addEventListener('click', function(event) {
+    if (event.target === successModal) {
+        successModal.style.display = 'none';
+    }
+});
+
+document.getElementById("paymentMethod").addEventListener("change", function() {
+            document.getElementById("cardDetails").style.display = "none";
+            document.getElementById("upiScanner").style.display = "none";
+            const selectedMethod = this.value;
+            if (selectedMethod === "creditCard" || selectedMethod === "debitCard") {
+                document.getElementById("cardDetails").style.display = "block";
+            } else if (selectedMethod === "upi") {
+                document.getElementById("upiScanner").style.display = "block";
+            } 
+        });
+</script>
+</body>
+</html>

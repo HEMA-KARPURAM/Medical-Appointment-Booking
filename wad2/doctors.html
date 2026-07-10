@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">  <img src="logo.jpeg" weight="55" height="50",align="left"> 
+        <h1>HARRY MultiSpeciality Hospital</h1> 
+        
+    </div>
+
+    <center><input type="text" id="searchInput" placeholder="Search by specialty, location..." onkeyup="filterDoctors()"></center>
+    <main>
+        <div class="doctor-list" id="doctorList">
+            <div class="doctor-card">
+                <img src="doctor1.jpg" alt="Doctor 1">
+                <h2>Dr. Avinash </h2>
+                <p>Specialty: Cardiology</p>
+                <p>Experience: 10 years</p>
+                <p>Consultation Fee: ₹250</p>
+                <p class="availability">Available on Oct 21</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor4.jpg" alt="Doctor 2">
+                <h2>Dr. Kiran</h2>
+                <p>Specialty: Dermatology</p>
+                <p>Experience: 8 years</p>
+                <p>Consultation Fee: ₹250</p>
+                <p class="availability">Available on Oct 22</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor5.jpg" alt="Doctor 3">
+                <h2>Dr. Ravi</h2>
+                <p>Specialty: Pediatrician</p>
+                <p>Experience: 8 years</p>
+                <p>Consultation Fee: ₹200</p>
+                <p class="availability">Available on Oct 20</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor2.jpg" alt="Doctor 4">
+                <h2>Dr. Salim </h2>
+                <p>Specialty: Oncologist</p>
+                <p>Experience: 15 years<Oncologist/p>
+                <p>Consultation Fee: ₹250</p>
+                <p class="availability">Available on Oct 25</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor3.jpg" alt="Doctor 4">
+                <h2>Dr. Manoj kumar</h2>
+                <p>Specialty: Gynecologist </p>
+                <p>Experience: 15 years</p>
+                <p>Consultation Fee: ₹200</p>
+                <p class="availability">Available on Oct 25</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+            <div class="doctor-card">
+                <img src="riyadoc.png" alt="Doctor 5">
+                <h2>Dr. Riya</h2>
+                <p>Specialty: Immunology</p>
+                <p>Experience: 3 years</p>
+                <p>Consultation Fee: ₹200</p>
+                <p class="availability">Available on Oct 25</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+            <div class="doctor-card">
+                <img src="anjalidoc.jpg" alt="Doctor 5">
+                <h2>Dr. Anjali</h2>
+                <p>Specialty: Gynecologist</p>
+                <p>Experience: 8 years</p>
+                <p>Consultation Fee: ₹200</p>
+                <p class="availability">Available on Oct 25</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+            <div class="doctor-card">
+                <img src="indiradoc.avif" alt="Doctor 5">
+                <h2>Dr. Jayanthi</h2>
+                <p>Specialty: Endocrinologis</p>
+                <p>Experience: 8 years</p>
+                <p>Consultation Fee: ₹200</p>
+                <p class="availability">Available on Oct 25</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+            <div class="doctor-card">
+                <img src="indiradoc.png" alt="Doctor 5">
+                <h2>Dr. Rohini</h2>
+                <p>Specialty: Pulmonologist </p>
+                <p>Experience: 4 years</p>
+                <p>Consultation Fee: ₹200</p>
+                <p class="availability">Available on Oct 25</p>
+                <a href="book.html"><button class="app">Book Appointment</button> </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+        <p>© 2024 SAHAJ MultiSpeciality Hospital | All rights reserved</p>
+
+        <div class="social-media">
+
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+
+        </div>
+
+    </footer>
+    <script>
+        function filterDoctors() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const doctorCards = document.querySelectorAll('.doctor-card');
+
+            doctorCards.forEach(card => {
+                const specialty = card.querySelector('p:nth-of-type(1)').textContent.toLowerCase();
+                if (specialty.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHAJ MultiSpeciality Hospital</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="hospitallogo.jpeg" alt="Hospital Logo">
+            <h1>HARRY MultiSpeciality Hospital</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Doctors</a></li>
+                <li><a href="#">Book Appointment</a></li>
+                <li><a href="#">Financial Aid</a></li>
+                <li><a href="#">Donations</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li class="user-profile">
+                    <img src="userprofile.jpeg" alt="User Profile">
+                    <ul class="dropdown">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Booking History</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        const userProfile = document.getElementById('user-profile');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        userProfile.addEventListener('click', (event) => {
+            dropdownMenu.classList.toggle('active');
+            event.stopPropagation(); // Prevents clicks from bubbling up
+        });
+
+        document.addEventListener('click', () => {
+            if (dropdownMenu.classList.contains('active')) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+    </script
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h2>Welcome to HARRY MultiSpeciality Hospital</h2>
+            <p>Your health, our priority. Book your appointment now!</p>
+            <a href="#" class="cta-button">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Latest News & Announcements</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Free Health Checkup Camp</h3>
+                <p>Join our free health camp on October 25th. Book your slot today!</p>
+            </div>
+            <div class="card">
+                <h3>Successful Surgeries: 500+</h3>
+                <p>We are proud to have helped over 500 patients recover with care.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 SAHAJ MultiSpeciality Hospital | All rights reserved</p>
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>

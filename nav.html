@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Navbar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Fixed Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html" onclick="loadContent('home')">Home</a></li>
+      <li><a href="about.html" onclick="loadContent('about')">About</a></li>
+      <li><a href="services.html" onclick="loadContent('services')">Services</a></li>
+      <li><a href="contact.html" onclick="loadContent('contact')">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Content Area -->
+  <div id="content">
+    <!-- Dynamic content will be injected here -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

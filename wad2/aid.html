@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Financial Aid Page</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+            body{
+                margin:0;
+                background-color: silver;
+                background-image: url("26841.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                overflow-x: hidden;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+            .logo img {
+                width: 50px;
+                margin-right: 15px;
+            }
+            .logo h1 {
+                font-size: 28px;
+                color: white;
+                margin: 0;
+                text-shadow: 1px 1px 2px white;
+            }
+            h1{
+                color:#004d99;
+                text-align: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-shadow: 1px 1px 2px #004d99;
+            }
+            header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #004d99;
+                padding: 15px 30px;
+                width: 100%;
+            }  
+            main{
+                margin-top:20px;
+                margin-left: 25%;
+                border-radius: 10px;
+                border: 1px;
+                padding: 10px;
+                max-width: 750px;
+                box-shadow: 2px 2px 5px #004d99;
+                backdrop-filter: blur(14px);
+                height: auto;
+                margin-bottom: 12.5%;
+            }
+            label{
+                font-weight: bold;
+                color: #333;
+                margin-top: 20px;
+                font-family: 'Lucida Sans';
+                margin-left: 23%;
+            }
+            input,textarea{
+                width: 45%;
+                margin-top: 8px;
+                margin-left: 30%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1em;
+                color: #575454;
+                background-color: rgba(255, 255, 255, 0.5);
+                transition: border-color 0.3s;
+            }
+            a:hover{
+                color:white;
+            }
+            h3{
+                color:rgb(94, 94, 94);
+                margin-left: 20px;
+                margin-bottom: 10px;
+            }
+            .non-display {
+                display: none;
+                margin-top: 10px;
+            }
+            .spacing{
+                padding-left: 25%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                color: #333;
+            }
+            li{
+                margin-bottom: 5px;
+            }
+            textarea{
+                resize: none;
+            }
+            button{
+                height: 35px;
+                background-color: rgba(16, 193, 247, 0.36);
+                border: 1px;
+                border-radius: 10px;
+                cursor:pointer;
+                width:15%;
+            }
+            button:hover{
+                color:white;
+                border: 1px;
+                border-radius: 15px;
+                background-color: rgb(7, 63, 128) ;
+            }
+            button:active{
+                background-color: rgb(0, 91, 17);
+            }
+            footer {
+                background-color: #004d99;
+                color: white;
+                text-align: center;
+                padding: 10px;
+                position:relative;
+                bottom: 0;
+                left:0;
+                right:0;
+            }
+            .social-media a {
+                color: white;
+                margin: 0 5px;
+                transition: color 0.3s;
+            }
+            .social-media a:hover {
+                color: #83bbf2;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="h2">
+            <div class="logo">
+                <img src="hospitallogo.jpeg" alt="Hospital Logo">
+                <h1>HARRY MultiSpeciality Hospital</h1>
+            </div>
+        </header>
+        <main>
+            <h1>Financial Aid</h1><br>
+            <h3>Eligibility information:</h3>
+            <div class="spacing">
+                <ol type="number">
+                    <li>From the side of patient or his family members having income is less than 200000 per annum.</li>
+                    <li>Please upload the income and medical certificates properly.</li>
+                    <li>If patient condition is serious and you are not able to pay now then click the option emergency.</li>
+                    <li>Check your eligibility below , if you are eligible then please fill the details below.</li>
+                </ol>
+            </div><br>
+            <h3>please check your eligibility:</h3>
+            <input type="number" id="income" placeholder="Enter your income"><br><br>
+            <center><button type="submit" onclick="Financial()">CHECK YOUR ELIGIBILITY</button></center>
+            <div class="non-display" id="aidform">
+            <h3>Aid application form:</h3>
+            <form action="in.html" target="_self">
+                <label for="full-name">Full Name:</label><br>
+                <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" maxlength="10" required><br>
+                <label for="file">Medical Reports:</label><br>
+                <input type="file" id="file" name="file" required><br>
+                <label for="file">Income Reports:</label><br>
+                <input type="file" id="file" name="file" required><br>  
+                <label for="message">Medical Condition:</label><br>
+                <textarea id="message" name="message" rows="4" style="width:55%" placeholder="Add any specific details or requests..."></textarea><br>
+                <center><button type="submit" onclick="Financial()">Apply</button></center>
+            </form>
+            </div>
+        </main>
+        <footer>
+            <p>© 2024 SAHAJ MultiSpeciality Hospital | All rights reserved</p>
+            <div class="social-media">
+                <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+            </div>
+        </footer>
+        <script>
+            function Financial() {
+             const income = parseFloat(document.getElementById("income").value);
+             const incomeeligibility = 200000;
+ 
+             if (isNaN(income)) {
+                 alert("Please enter a valid number for income.");
+             } else if (income <= incomeeligibility) {
+                 alert("You are eligible . Please fill the details below")
+                 return2();
+             } else {
+                 alert("You are not eligible.");
+             }
+             }
+             function return2(){
+                 alert("If you are filled all the details then only you are directed into payment page otherwise please fill the required details:");
+             }
+             document.getElementById("income").addEventListener("change", function() {
+             document.getElementById("aidform").style.display = "none";
+             const income = parseFloat(document.getElementById("income").value);
+             if (isNaN(income)) {
+                 document.getElementById("aidform").style.display = "none";
+             } else if (income <= 200000) {
+                 document.getElementById("aidform").style.display = "block";
+             } else{
+                 document.getElementById("aidform").style.display = "none";
+             }
+         });
+         </script>
+    </body>
+</html>

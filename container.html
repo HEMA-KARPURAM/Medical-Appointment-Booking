@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Card Carousel</title>
+    <style>
+        /* Container styling */
+        .content-card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            width: 100%;
+            gap: 20px;
+        }
+
+        /* News card styling */
+        .news-card {
+            display: flex;
+            background-color: #333333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .media {
+            display: none;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .attribution {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .heading {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .action-row-start {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        /* Optional custom colors */
+        :host {
+            --color-card-background: #333333;
+            --color-brand-background: #082233;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-card-container">
+    <div class="news-card">
+        <img class="media" alt="Sunil Gavaskar smashes plate" src="https://th.bing.com/th?id=ORMS.92c7ff&p=lid=d3&pid=9&cb=8">
+        <div class="body">
+            <div class="text">
+                <div class="attribution">Hindustan Times</div>
+                <a href="https://www.msn.com/en-in/sports/cricket/sunil-gavaskar-smashes-plate" class="heading" target="_blank">Sunil Gavaskar smashes plate while having lunch</a>
+                <span class="action-row-start">Click to read more</span>
+            </div>
+            <div class="action-row">
+                <span>Share</span>
+                <span>Bookmark</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAHAJ MultiSpeciality Hospital</title>
+ 	 <link rel="stylesheet" href="style1.css">
+         <link rel="stylesheet" href="styles.css">
+	 <link rel="stylesheet" href="style5.css">
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    /* Main container */
+    .slider-wrap {
+      width: 90%;
+      overflow: hidden;
+      position: relative;
+      margin: 20px auto;
+    }
+
+    /* Slider container */
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 15px;
+    }
+
+    /* Individual slide */
+    .slide {
+      min-width: 22%;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Image styling */
+    .slide img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    /* Text content */
+    .slide-content {
+      padding: 10px;
+    }
+
+    .date-author {
+      color: #888;
+      font-size: 0.8rem;
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 8px;
+      color: #004d99;
+    }
+
+    .categories {
+      font-size: 0.8rem;
+      color: #004d99;
+      margin-top: 5px;
+    }
+
+    /* Navigation buttons */
+    
+    .nav-button {
+      font-size: 1.5rem;
+      color: white;
+      background: #004d99;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10;
+      user-select: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .nav-button.left {
+      left: -35px;
+    }
+
+    .nav-button.right {
+      right: -35px;
+    }
+
+    /* Pagination dots */
+    .pagination {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      background-color:#004d99;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color:#fff;
+    }
+
+    /* User Profile Dropdown */
+    .user-profile {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .user-profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 5;
+    }
+
+    .dropdown li {
+      list-style: none;
+      padding: 10px 20px;
+    }
+
+    .dropdown li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    .dropdown li:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Donations Dropdown Menu */
+    .donations-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .donations-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 150px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 5;
+      border-radius: 8px;
+    }
+
+    .donations-dropdown-content a {
+      color: #333;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .donations-dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .donations-dropdown:hover .donations-dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="main-header">
+    <div class="logo">
+      <img src="hospitallogo.jpeg" alt="Hospital Logo">
+      <h1>HARRY MultiSpeciality Hospital</h1>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="main1.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="book.html">Book Appointment</a></li>
+        <li><a href="aid.html">Financial Aid</a></li>
+        <li class="donations-dropdown">
+          <a href="donations.html">Donations</a>
+          <div class="donations-dropdown-content">
+            <a href="donations.html">Money Donation</a>
+            <a href="organdonation.html">Organ Donation</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li class="user-profile" onclick="toggleDropdown()">
+          <img src="userprofile.jpeg" alt="User Profile">
+          <ul class="dropdown" id="userDropdown">
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="firstaid.html">Health emergency</a></li>
+            <li><a href="logout.html">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+   <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h2>Welcome to HARRY MultiSpeciality Hospital</h2>
+      <p>Your health, our priority. Book your appointment now!</p>
+      <a href="book.html" class="cta-button">Book Appointment</a>
+    </div>
+  </section>
+
+  <!-- Features Section with Carousel Slider -->
+  <section class="features">
+    <h2>Latest News & Announcements</h2>
+    <div class="slider-wrap">
+      <!-- Navigation Buttons -->
+      <button class="nav-button left" onclick="moveSlide(-1)">"    <    </button>
+      <button class="nav-button right" onclick="moveSlide(1)">    >    "</button>
+
+      <!-- Slider container -->
+      <div class="slider" id="slider">
+        <!-- Slide 1 -->
+        <div class="slide" onclick="window.location.href='https://www.healthcareitnews.com/'">
+          <img src="img1.jpeg" alt="Healthcare Innovations">
+          <div class="slide-content">
+            <div class="date-author">Nov 1, 2024 by Healthcare Innovations</div>
+            <div class="title">Healthcare IT News: Innovations in Medical Technology</div>
+            <div class="categories">MEDICAL, INNOVATION</div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+      <div class="slide" onclick="window.location.href='https://www.medscape.com/'">
+        <img src="img2.jpeg" alt="Medscape News">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by Medscape</div>
+          <div class="title">Medscape: Latest in Surgery and Medical Innovations</div>
+          <div class="categories">SURGERY, MEDICAL NEWS</div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" onclick="window.location.href='https://www.ncbi.nlm.nih.gov/'">
+        <img src="img3.jpeg" alt="NCBI Research">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by NCBI</div>
+          <div class="title">NCBI: Cutting-Edge Research in Medicine</div>
+          <div class="categories">RESEARCH, MEDICINE</div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide" onclick="window.location.href='https://www.nejm.org/'">
+        <img src="img4.jpeg" alt="NEJM Innovations">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by NEJM</div>
+          <div class="title">NEJM: New Innovations in Surgical Procedures</div>
+          <div class="categories">SURGERY, INNOVATION</div>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide" onclick="window.location.href='https://www.the-scientist.com/'">
+        <img src="img5.jpeg" alt="The Scientist">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by The Scientist</div>
+          <div class="title">The Scientist: Advancements in Medical Science</div>
+          <div class="categories">SCIENCE, MEDICINE</div>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide" onclick="window.location.href='https://www.bmj.com/'">
+        <img src="img6.jpeg" alt="BMJ">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by BMJ</div>
+          <div class="title">BMJ: Surgical Techniques and Innovations</div>
+          <div class="categories">SURGERY, MEDICAL</div>
+        </div>
+      </div>
+    </div>
+
+      </div>
+      <!-- Pagination Dots -->
+      <div class="pagination" id="pagination">
+        <span class="dot" onclick="setSlide(0)"></span>
+        <span class="dot" onclick="setSlide(1)"></span>
+        <span class="dot" onclick="setSlide(2)"></span>
+        <span class="dot" onclick="setSlide(3)"></span>
+      </div>
+    </div>
+  </section>
+        <!-- Footer -->
+  <footer>
+    <p>© 2024 SAHAJ MultiSpeciality Hospital | All rights reserved</p>
+    <div class="social-media">
+      <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+    </div>
+  </footer>
+ <script>
+    // JavaScript to control slider
+    let currentSlide = 0;
+    const totalSlides = document.querySelectorAll(".slide").length;
+
+    function updateSliderPosition() {
+      const slider = document.getElementById("slider");
+      slider.style.transform = translateX(-${currentSlide * 25}%);
+      updatePagination();
+    }
+
+    function moveSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = totalSlides - 1;
+      else if (currentSlide >= totalSlides) currentSlide = 0;
+      updateSliderPosition();
+    }
+
+    function setSlide(index) {
+      currentSlide = index;
+      updateSliderPosition();
+    }
+
+    function updatePagination() {
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentSlide);
+      });
+   }
+  // Initial position
+    updateSliderPosition();
+
+    // Toggle dropdown menu
+function toggleDropdown(event) {
+  event.stopPropagation();  // Prevents the click event from bubbling up
+  const dropdown = document.getElementById("userDropdown");
+  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+// Close dropdown if clicked outside
+window.onclick = function(event) {
+  const dropdown = document.getElementById("userDropdown");
+  if (!event.target.matches('.user-profile img') && !event.target.matches('.dropdown')) {
+    // Close the dropdown if the click is outside the user profile or dropdown
+    if (dropdown.style.display === "block") {
+      dropdown.style.display = "none";
+    }
+  }
+}
+
+    </script>
+</body>
+</html>

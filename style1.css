@@ -1,0 +1,562 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+
+}
+.main-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background-color: #004d99;
+
+    padding: 15px 30px;
+
+    width: 100%;
+
+}
+
+
+
+/* Logo Section */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+
+.logo img {
+
+    width: 50px;
+
+    margin-right: 15px;
+
+}
+
+
+
+.logo h1 {
+
+    font-size: 28px;
+
+    color: white;
+
+    margin: 0;
+
+}
+
+
+
+/* Navigation Bar */
+body #navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Adjust z-index as needed */
+}
+
+
+
+.navbar ul {
+
+    display: flex;
+
+    align-items: center;  /* Align vertically */
+
+    list-style: none;
+
+    gap: 20px;
+
+    margin: 0;
+
+}
+
+
+
+/* Navbar Links */
+
+.navbar a {
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 10px 15px;
+
+    font-size: 18px;
+
+    transition: background 0.3s, color 0.3s;
+
+}
+
+
+
+/* Hover Effect */
+
+.navbar a:hover {
+
+    background-color: #83bbf2;
+
+    color: white;
+
+    border-radius: 5px;
+
+}
+
+
+
+/* User Profile */
+
+.user-profile {
+
+    display: flex;
+
+    align-items: center;  /* Vertical alignment */
+
+    position: relative;
+
+    cursor: pointer;
+
+}
+
+
+
+.user-profile img {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    margin-left: 10px;
+
+}
+
+
+
+/* Dropdown Menu */
+
+.user-profile .dropdown {
+
+    display: none;
+
+    position: absolute;
+
+    top: 60px;
+
+    right: 0;
+
+    background-color: white;
+
+    list-style: none;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+.user-profile:hover .dropdown {
+
+    display: block;
+
+}
+
+/* Dropdown Menu Hidden by Default */
+
+.dropdown {
+
+    display: none;
+
+    position: absolute;
+
+    top: 60px;
+
+    right: 0;
+
+    background-color: white;
+
+    list-style: none;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    padding: 10px;
+
+    border-radius: 5px;
+
+    min-width: 150px;
+
+}
+
+
+
+/* Show Dropdown When Active */
+
+.dropdown.active {
+
+    display: block;
+
+}
+
+
+
+.dropdown li a {
+
+    display: block;
+
+    padding: 10px 15px;
+
+    color: black;
+
+    text-decoration: none;
+
+}
+
+
+
+.dropdown li a:hover {
+
+    background-color: #f1f1f1;
+
+}
+
+
+
+/* Hero Section with Text Overlay */
+
+.hero {
+
+    position: relative;
+
+    background-image: url('hospital.jpeg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+
+.hero-overlay h2 {
+
+    font-size: 48px;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.hero-overlay p {
+
+    font-size: 24px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.cta-button {
+
+    background-color: #004d99;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    border-radius: 5px;
+
+    transition: background-color 0.3s;
+
+}
+
+
+
+.cta-button:hover {
+
+    background-color: #83bbf2;
+
+}
+
+
+
+/* Features Section */
+
+.features {
+
+    padding: 50px 20px;
+
+    background-color: white;
+
+    text-align: center;
+
+}
+
+
+
+.card-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+}
+
+
+
+.card {
+
+    background-color: #f8f8f8;
+
+    padding: 20px;
+
+    border-radius: 5px;
+
+    width: 300px;
+
+}
+
+/* Main container */
+
+.main-container {
+
+  overflow: hidden;
+
+  width: 100vw;
+
+  height: 400px;
+
+  display: flex;
+
+  align-items: center;
+
+  background-color: #f4f4f4;
+
+}
+
+
+
+/* Scrolling container */
+
+.scrolling-container {
+
+  display: flex;
+
+  animation: scrollBlocks 20s linear infinite;
+
+}
+
+
+
+/* Individual blocks */
+
+.scrolling-block {
+
+  width: 300px;
+
+  height: 350px;
+
+  margin: 0 10px;
+
+  background-color: #fff;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+}
+
+
+
+/* Image slider */
+
+.image-slider {
+
+  display: flex;
+
+  animation: slideImages 5s infinite;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  width: 300px;
+
+  height: 250px;
+
+}
+
+
+
+/* Images in slider */
+
+.image-slider img {
+
+  width: 300px;
+
+  height: 250px;
+
+  object-fit: cover;
+
+}
+
+
+
+/* Keyframes for image sliding */
+
+@keyframes slideImages {
+
+  0%, 20% { transform: translateX(0); }
+
+  25%, 45% { transform: translateX(-100%); }
+
+  50%, 70% { transform: translateX(-200%); }
+
+  75%, 100% { transform: translateX(0); }
+
+}
+
+
+
+/* Keyframes for block scrolling */
+
+@keyframes scrollBlocks {
+
+  0% { transform: translateX(0); }
+
+  100% { transform: translateX(-50%); }
+
+}
+
+
+
+/* Pause on hover */
+
+.main-container:hover .scrolling-container,
+
+.main-container:hover .image-slider {
+
+  animation-play-state: paused;
+
+}
+
+
+
+/* Text description */
+
+.scrolling-block p {
+
+  padding: 10px;
+
+  font-size: 14px;
+
+  text-align: center;
+
+}
+
+
+
+/* Footer Styling */
+
+footer {
+
+    background-color: #004d99;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 10px;
+
+}
+
+
+
+.social-media a {
+
+    color: white;
+
+    margin: 0 5px;
+
+    text-decoration: none;
+
+    transition: color 0.3s;
+
+}
+
+
+
+.social-media a:hover {
+
+    color: #83bbf2;
+
+}

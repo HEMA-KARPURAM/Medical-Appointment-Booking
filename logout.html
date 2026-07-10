@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .logout-container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    h1 {
+      color: #004d99;
+    }
+
+    p {
+      color: #555;
+    }
+
+    .logout-btn, .no-btn {
+      background-color: #004d99;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 20px;
+      border: none;
+    }
+
+    .logout-btn:hover, .no-btn:hover {
+      background-color: #003366;
+    }
+
+    .no-btn {
+      background-color: #ff4d4d;
+    }
+
+    .no-btn:hover {
+      background-color: #e60000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logout-container">
+    <h1>Are you sure you want to log out?</h1>
+    <p>Click "Log Out" to exit or "No" to stay on the page.</p>
+    <button class="logout-btn" onclick="logout()">Log Out</button>
+    <button class="no-btn" onclick="stayOnPage()">No</button>
+  </div>
+
+  <script>
+    function logout() {
+      // Here you can clear any session or local storage data if applicable
+      sessionStorage.clear();  // Clear session storage (if used)
+      localStorage.clear();    // Clear local storage (if used)
+
+      // Redirect to the homepage or login page
+      window.location.href = "index.html"; // Replace with the actual login or home page URL
+    }
+
+    function stayOnPage() {
+      // Do nothing to keep the user on the current page
+      alert("You are staying on the page.");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Loan Page</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+            body{
+                margin:0;
+                background-color: silver;
+                background-image: url("26841.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                overflow-x: hidden;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+            .logo img {
+                width: 50px;
+                margin-right: 15px;
+            }
+            .logo h1 {
+                font-size: 28px;
+                color: white;
+                margin: 0;
+                text-shadow: 1px 1px 2px white;
+            }
+            header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #004d99;
+                padding: 15px 30px;
+                width: 100%;
+            }  
+            main{
+                margin-top:20px;
+                margin-left: 25%;
+                margin-bottom: 20px;
+                border-radius: 10px;
+                border: 1px;
+                padding: 10px;
+                max-width: 750px;
+                box-shadow: 2px 2px 5px #004d99;
+                backdrop-filter: blur(14px);
+                height: auto;
+            }
+            h1{
+                color:#004d99;
+                text-align: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-shadow: 1px 1px 2px #004d99;
+                margin-bottom: 20px;
+            }
+            h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            }
+
+            label {
+                font-weight: bold;
+                color: #555;
+                margin-top: 20px;
+                font-family: 'Lucida Sans';
+                margin-left: 23%;
+            }
+
+            input, select, textarea {
+                width: 45%;
+                margin-top: 8px;
+                margin-left: 30%;
+                margin-bottom: 10px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1em;
+                color: #575454;
+                background-color: rgba(255, 255, 255, 0.5);
+                transition: border-color 0.3s;
+                resize: vertical;
+            }
+
+            input:focus, select:focus, textarea:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+
+
+            button {
+                background-color: #007bff;
+                color: white;
+                padding: 12px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                width: 35%;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+                margin-top: 15px;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            .loan-status {
+                display: none;
+                text-align: center;
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #e2f3ff;
+                border: 1px solid #b3daff;
+                border-radius: 4px;
+                color: #007bff;
+            }
+
+            .loan-option {
+                margin-bottom: 10px;
+                cursor: pointer;
+                padding: 10px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width:35%;
+                margin-left: 40%;
+                margin-right: 0;
+            }
+            .loan-option:hover {
+                background-color: #f1f1f1;
+            }
+
+            .loan-details {
+                display: none;
+                font-size: 14px;
+                color: #555;
+            }
+            footer {
+                background-color: #004d99;
+                color: white;
+                text-align: center;
+                padding: 10px;
+                position:relative;
+                bottom: 0;
+                left:0;
+                right:0;
+            }
+            .social-media a {
+                color: white;
+                margin: 0 5px;
+                transition: color 0.3s;
+            }
+            .social-media a:hover {
+                color: #83bbf2;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <header class="h2">
+            <div class="logo">
+                <img src="hospitallogo.jpeg" alt="Hospital Logo">
+                <h1>HARRY MultiSpeciality Hospital</h1>
+            </div>
+        </header>
+        <main>
+            <h1>Medical Loan Application Form</h1>
+            <form action="loan-confirmation.html" target="_self">
+                <h3>Personal Details</h3>
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            
+                <label for="aadhaar">Aadhaar Card (Upload)</label>
+                <input type="file" id="aadhaar" name="aadhaar" required>
+            
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            
+            <h3>Employment Details</h3>
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" required>
+            
+                <label for="occupationProof">Occupation Proof (Upload)</label>
+                <input type="file" id="occupationProof" name="occupationProof" required>
+           
+                <label for="income">Monthly Income (₹)</label>
+                <input type="number" id="income" name="income" required>
+            
+            <h3>Bank Details</h3>
+                <label for="bankAccount">Bank Account Number</label>
+                <input type="text" id="bankAccount" name="bankAccount" pattern="[0-9]{10}" maxlength="15" required>
+            
+                <label for="ifsc">Bank IFSC Code</label>
+                <input type="text" id="ifsc" name="ifsc" required>
+            
+            <h3>Loan Details</h3>
+                <label for="loanAmount">Loan Amount Requested (₹)</label><br><br>
+                    <div class="loan-option" onmouseover="showLoanDetails('loan1')" onmouseout="hideLoanDetails('loan1')">
+                        <input type="radio" style="margin-left: 4px;" name="loanAmount" value="20000"  required>₹2,00,000
+                        <div id="loan1" class="loan-details">
+                            Interest: 10%  || Term: 1 Year ||  Installments: 12
+                        </div>
+                    </div>
+                    <div class="loan-option" onmouseover="showLoanDetails('loan2')" onmouseout="hideLoanDetails('loan2')">
+                        <input type="radio" style="margin-left: 4px;" name="loanAmount" value="50000">₹5,00,000
+                        <div id="loan2" class="loan-details">
+                            Interest: 9.5%  || Term: 2 Years ||  Installments: 24
+                        </div>
+                    </div>
+                    <div class="loan-option" onmouseover="showLoanDetails('loan3')" onmouseout="hideLoanDetails('loan3')">
+                        <input type="radio" style="margin-left: 4px;" name="loanAmount" value="80000"> ₹8,00,000
+                        <div id="loan3" class="loan-details">
+                            Interest: 9% || Term: 3 Years || Installments: 36
+                        </div>
+                    </div>
+                    <div class="loan-option" onmouseover="showLoanDetails('loan4')" onmouseout="hideLoanDetails('loan4')">
+                        <input type="radio" style="margin-left: 4px;" name="loanAmount" value="500000"> ₹10,00,000
+                        <div id="loan4" class="loan-details">
+                            Interest: 8.5% || Term: 4 Years || Installments: 48
+                        </div>
+                    </div>
+
+                <label for="loanPurpose">Purpose of Loan</label>
+                <textarea id="loanPurpose" name="loanPurpose" rows="4" required></textarea>
+            </div><br>
+
+            <h3>Medical Information</h3>
+                <label for="medicalRecords">Upload Medical Records</label>
+                <input type="file" id="medicalRecords" name="medicalRecords">
+            </div>
+                <label for="incomeProof">Upload Income Proof</label>
+                <input type="file" id="incomeProof" name="incomeProof">
+            </div><br>
+                <center><input type="checkbox" style="margin-left: 0;width: auto;" id="terms" name="terms" required>
+                <label for="terms" style="margin-left: 0;"><a href="path-to-your-terms-and-conditions.pdf" target="_blank" style="text-decoration: none; color: #09519e;margin-left: 0;">I agree to the terms and conditions
+                </a>
+                </label></center><br>
+                <center><button type="submit" >Submit Application</button></center>
+        </form>
+        <div id="loanStatus" class="loan-status">
+            <p>Your loan application has been successfully submitted. We will contact you shortly with further details.</p>
+        </div>
+        </main>
+        <footer>
+            <p>© 2024 SAHAJ MultiSpeciality Hospital | All rights reserved</p>
+            <div class="social-media">
+                <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+            </div>
+        </footer>
+        <script>
+            function later(){
+                alert("If you are filled all the details then only you are directed into further process otherwise please fill the required details:");
+            }
+    function showLoanDetails(loanId) {
+        document.getElementById(loanId).style.display = 'block';
+    }
+    function hideLoanDetails(loanId) {
+        document.getElementById(loanId).style.display = 'none';
+    }
+    document.getElementById('loanForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        document.getElementById('loanStatus').style.display = 'block';
+        setTimeout(function() {
+            window.location.href = 'loan-confirmation.html'; 
+        }, 2000);
+    });
+        </script>
+    </body>
+</html>

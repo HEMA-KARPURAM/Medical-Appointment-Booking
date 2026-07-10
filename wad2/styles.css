@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header{
+    background-color: #004d99;
+    color: #fff;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-family: Arial, sans-serif;
+}
+.header img{
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10PX;
+}
+.header h1{
+    font-family: Arial, sans-serif;
+    padding-left: 20px;
+    font-size: 28px;
+}
+.doctor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.doctor-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    height:450px;
+    box-shadow: 5px 10px 8px silver;
+}
+
+.doctor-card img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+    height:43%;
+    box-shadow: 5px 10px 8px silver;
+}
+
+.availability {
+    color: green;
+    font-weight: bold;
+}
+
+.app{
+    background-color: #28A745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+footer {
+background-color: #004d99;
+color: white;
+text-align: center;
+padding: 10px;
+}
+.social-media a {
+color: white;
+margin: 0 5px;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.social-media a:hover {
+
+    color: #83bbf2;
+
+}
+input{
+    width: 450px;
+    padding-left: 12px;
+    border-radius: 20px;
+    margin-top: 15px;
+    height: 35px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.422);
+ 
+ }

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Loan Application Form</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background settings */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* Replace with your desired background image URL */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Overlay and container */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"], input[type="file"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            transition: border 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .checkbox input {
+            margin-right: 5px;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .loan-status {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e2f3ff;
+            border: 1px solid #b3daff;
+            border-radius: 4px;
+            color: #007bff;
+        }
+
+        /* Applicant Image Upload in the top-right corner */
+        .image-upload {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .image-upload input[type="file"] {
+            display: none;
+        }
+
+        .loan-options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .loan-option {
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .loan-option:hover {
+            background-color: #f1f1f1;
+        }
+
+        .loan-details {
+            display: none;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .loan-option input[type="radio"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay">
+    <div class="container">
+        <h2>Medical Loan Application Form</h2>
+
+        <!-- Applicant Image Upload -->
+        <div class="image-upload">
+            <label for="applicantImage">Upload Photo</label>
+            <input type="file" id="applicantImage" name="applicantImage" onchange="previewImage()">
+        </div>
+
+        <form id="loanForm">
+            
+            <!-- Personal Details Section -->
+            <h3>Personal Details</h3>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="aadhaar">Aadhaar Card (Upload)</label>
+                <input type="file" id="aadhaar" name="aadhaar" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <!-- Employment Details Section -->
+            <h3>Employment Details</h3>
+            <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation" name="occupation" required>
+            </div>
+            <div class="form-group">
+                <label for="occupationProof">Occupation Proof (Upload)</label>
+                <input type="file" id="occupationProof" name="occupationProof" required>
+            </div>
+            <div class="form-group">
+                <label for="income">Monthly Income (₹)</label>
+                <input type="number" id="income" name="income" required>
+            </div>
+
+            <!-- Bank Details Section -->
+            <h3>Bank Details</h3>
+            <div class="form-group">
+                <label for="bankAccount">Bank Account Number</label>
+                <input type="text" id="bankAccount" name="bankAccount" required>
+            </div>
+            <div class="form-group">
+                <label for="ifsc">Bank IFSC Code</label>
+                <input type="text" id="ifsc" name="ifsc" required>
+            </div>
+
+            <!-- Loan Details Section -->
+            <h3>Loan Details</h3>
+            <div class="form-group">
+                <label for="loanAmount">Loan Amount Requested (₹)</label>
+                <div class="loan-options">
+                    <div class="loan-option" onmouseover="showLoanDetails('loan1')" onmouseout="hideLoanDetails('loan1')">
+                        <input type="radio" name="loanAmount" value="200000" required> ₹2,00,000
+                        <div id="loan1" class="loan-details">
+                            Interest: 10% | Term: 1 Year | Installments: 12
+                        </div>
+                    </div>
+                    <div class="loan-option" onmouseover="showLoanDetails('loan2')" onmouseout="hideLoanDetails('loan2')">
+                        <input type="radio" name="loanAmount" value="500000"> ₹5,00,000
+                        <div id="loan2" class="loan-details">
+                            Interest: 9.5% | Term: 2 Years | Installments: 24
+                        </div>
+                    </div>
+                    <div class="loan-option" onmouseover="showLoanDetails('loan3')" onmouseout="hideLoanDetails('loan3')">
+                        <input type="radio" name="loanAmount" value="800000"> ₹8,00,000
+                        <div id="loan3" class="loan-details">
+                            Interest: 9% | Term: 3 Years | Installments: 36
+                        </div>
+                    </div>
+                    <div class="loan-option" onmouseover="showLoanDetails('loan4')" onmouseout="hideLoanDetails('loan4')">
+                        <input type="radio" name="loanAmount" value="1000000"> ₹10,00,000
+                        <div id="loan4" class="loan-details">
+                            Interest: 8.5% | Term: 4 Years | Installments: 48
+                        </div>
+                    </div>
+                    <!-- Add more options as needed -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="loanPurpose">Purpose of Loan</label>
+                <textarea id="loanPurpose" name="loanPurpose" rows="3" required></textarea>
+            </div>
+
+            <!-- Medical Information Section -->
+            <h3>Medical Information</h3>
+            <div class="form-group">
+                <label for="medicalRecords">Upload Medical Records</label>
+                <input type="file" id="medicalRecords" name="medicalRecords">
+            </div>
+            <div class="form-group">
+                <label for="incomeProof">Upload Income Proof</label>
+                <input type="file" id="incomeProof" name="incomeProof">
+            </div>
+
+            <div class="checkbox">
+    <input type="checkbox" id="terms" name="terms" required>
+    <label for="terms">
+        <a href="path-to-your-terms-and-conditions.pdf" target="_blank" style="text-decoration: none; color: #007bff;">
+            I agree to the terms and conditions
+        </a>
+    </label>
+</div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+
+        </form>
+
+        <div class="loan-status" id="loanStatus"></div>
+
+    </div>
+</div>
+
+<script>
+    // JavaScript functions to show/hide loan details on hover
+    function showLoanDetails(loan) {
+        document.getElementById(loan).style.display = 'block';
+    }
+
+    function hideLoanDetails(loan) {
+        document.getElementById(loan).style.display = 'none';
+    }
+
+    // Image preview function
+    function previewImage() {
+        const fileInput = document.getElementById("applicantImage");
+        const file = fileInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imagePreview = document.querySelector('.image-upload');
+                imagePreview.style.backgroundImage = `url(${e.target.result})`;
+                imagePreview.style.backgroundSize = 'cover';
+                imagePreview.style.backgroundPosition = 'center';
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    
+    // Form validation (you can further customize this)
+    document.getElementById('loanForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const loanStatus = document.getElementById('loanStatus');
+        loanStatus.style.display = 'block';
+        loanStatus.textContent = 'Your loan application has been submitted successfully!';
+    });
+</script>
+
+</body>
+</html>

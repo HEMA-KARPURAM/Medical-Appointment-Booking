@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Emergencies and First Aid</title>
+ <link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="style5.css">
+</head>
+<body>
+    <header class="main-header">
+    <div class="logo">
+      <img src="hospitallogo.jpeg" alt="Hospital Logo">
+      <h1>HARRY MultiSpeciality Hospital</h1>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="main1.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="book.html">Book Appointment</a></li>
+        <li><a href="aid.html">Financial Aid</a></li>
+          <li class="donations-dropdown">
+          <a href="donations.html">Donations</a>
+          <div class="donations-dropdown-content">
+            <a href="donations.html">Money Donation</a>
+            <a href="organdonation.html">Organ Donation</a>
+          </div>
+        </li>
+
+        <li><a href="contact.html">Contact Us</a></li>
+        <li class="user-profile" onclick="toggleDropdown()">
+          <img src="userprofile.jpeg" alt="User Profile">
+          <ul class="dropdown" id="userDropdown">
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="firstaid.html">Health emergency</a></li>
+            <li><a href="logout.html">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #004d99;
+    }
+
+    .health-issue-section {
+      margin-bottom: 30px;
+    }
+
+    .health-issue-section h2 {
+      font-size: 1.6rem;
+      color: #004d99;
+      border-bottom: 2px solid #004d99;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+
+    .health-issue-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .health-issue-section li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .first-aid-btn {
+      background-color: #004d99;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .first-aid-btn:hover {
+      background-color: #003366;
+    }
+
+    .first-aid-steps {
+      display: none;
+      margin-top: 20px;
+      background-color: #e0f7fa;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .first-aid-steps ul {
+      padding-left: 20px;
+    }
+
+    .first-aid-steps li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Health Emergencies and First Aid</h1>
+
+    <!-- Section 1: Heart Attack -->
+    <div class="health-issue-section" id="heart-attack">
+      <h2>Heart Attack</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Chest pain, shortness of breath, dizziness, nausea, sweating.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('heart-attack')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="heart-attack-steps">
+        <h3>First Aid Steps for Heart Attack:</h3>
+        <ul>
+          <li>Call emergency services immediately.</li>
+          <li>Keep the person calm and encourage them to rest.</li>
+          <li>If the person is conscious, give them aspirin to chew.</li>
+          <li>Perform CPR if the person becomes unresponsive.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 2: Stroke -->
+    <div class="health-issue-section" id="stroke">
+      <h2>Stroke</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Sudden numbness or weakness in the face, arm, or leg, especially on one side of the body; confusion, trouble speaking or understanding speech.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('stroke')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="stroke-steps">
+        <h3>First Aid Steps for Stroke:</h3>
+        <ul>
+          <li>Call emergency services immediately.</li>
+          <li>Keep the person calm and still.</li>
+          <li>Do not give them food, drink, or medication.</li>
+          <li>If the person is unconscious, place them in the recovery position.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 3: Asthma Attack -->
+    <div class="health-issue-section" id="asthma-attack">
+      <h2>Asthma Attack</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Shortness of breath, wheezing, tightness in the chest, coughing.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('asthma-attack')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="asthma-attack-steps">
+        <h3>First Aid Steps for Asthma Attack:</h3>
+        <ul>
+          <li>Help the person sit upright and remain calm.</li>
+          <li>Administer their prescribed inhaler or bronchodilator.</li>
+          <li>Encourage slow and deep breaths.</li>
+          <li>If the symptoms do not improve, seek medical attention immediately.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 4: Seizures -->
+    <div class="health-issue-section" id="seizures">
+      <h2>Seizures</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Loss of consciousness, uncontrollable jerking movements, stiffening of the body.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('seizures')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="seizures-steps">
+        <h3>First Aid Steps for Seizures:</h3>
+        <ul>
+          <li>Stay calm and ensure the person is in a safe place.</li>
+          <li>Do not try to restrain the person or put anything in their mouth.</li>
+          <li>Place a soft cushion under their head if possible.</li>
+          <li>Once the seizure stops, check for breathing and keep the person on their side.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 5: Choking -->
+    <div class="health-issue-section" id="choking">
+      <h2>Choking</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Inability to breathe or speak, gasping for air, panic.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('choking')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="choking-steps">
+        <h3>First Aid Steps for Choking:</h3>
+        <ul>
+          <li>Encourage the person to cough.</li>
+          <li>If the person is unable to cough, give them 5 back blows.</li>
+          <li>If they are still choking, perform the Heimlich maneuver.</li>
+          <li>If the person becomes unconscious, begin CPR and call emergency services immediately.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 6: Burns -->
+    <div class="health-issue-section" id="burns">
+      <h2>Burns</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Red, swollen skin, blisters, intense pain.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('burns')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="burns-steps">
+        <h3>First Aid Steps for Burns:</h3>
+        <ul>
+          <li>Cool the burn under cold running water for at least 10 minutes.</li>
+          <li>Cover the burn with a clean, non-stick bandage.</li>
+          <li>Avoid popping blisters.</li>
+          <li>Seek medical attention if the burn is severe.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 7: Hypoglycemia -->
+    <div class="health-issue-section" id="hypoglycemia">
+      <h2>Hypoglycemia (Low Blood Sugar)</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Shaking, sweating, dizziness, confusion, weakness.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('hypoglycemia')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="hypoglycemia-steps">
+        <h3>First Aid Steps for Hypoglycemia:</h3>
+        <ul>
+          <li>Give the person 15-20 grams of fast-acting sugar (e.g., juice, glucose tablets).</li>
+          <li>Wait 15 minutes and check their blood sugar.</li>
+          <li>If symptoms persist, give them another dose of sugar.</li>
+          <li>If they remain unresponsive, call emergency services.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 8: Fractures -->
+    <div class="health-issue-section" id="fractures">
+      <h2>Fractures</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Pain, swelling, bruising, inability to move the affected limb.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('fractures')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="fractures-steps">
+        <h3>First Aid Steps for Fractures:</h3>
+        <ul>
+          <li>Immobilize the broken limb using a splint or makeshift object.</li>
+          <li>Apply ice to reduce swelling.</li>
+          <li>Seek medical attention immediately.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 9: Heat Stroke -->
+    <div class="health-issue-section" id="heat-stroke">
+      <h2>Heat Stroke</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> High body temperature (above 40°C), confusion, rapid pulse, fainting.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('heat-stroke')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="heat-stroke-steps">
+        <h3>First Aid Steps for Heat Stroke:</h3>
+        <ul>
+          <li>Move the person to a cool place and remove excess clothing.</li>
+          <li>Cool the body with cold packs, wet cloths, or a cool bath.</li>
+          <li>Encourage the person to drink cool fluids if they are conscious.</li>
+          <li>Call emergency services immediately.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 10: Allergic Reaction -->
+    <div class="health-issue-section" id="allergic-reaction">
+      <h2>Allergic Reaction</h2>
+      <ul>
+        <li><strong>Symptoms:</strong> Swelling, hives, difficulty breathing, anaphylaxis.</li>
+      </ul>
+      <button class="first-aid-btn" onclick="showFirstAidSteps('allergic-reaction')">Show First Aid Steps</button>
+      <div class="first-aid-steps" id="allergic-reaction-steps">
+        <h3>First Aid Steps for Allergic Reaction:</h3>
+        <ul>
+          <li>Administer an epinephrine injection (if prescribed) immediately.</li>
+          <li>Call emergency services immediately.</li>
+          <li>If the person is having trouble breathing, keep them calm and have them sit upright.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function showFirstAidSteps(healthIssue) {
+      const steps = document.getElementById(`${healthIssue}-steps`);
+      steps.style.display = (steps.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>

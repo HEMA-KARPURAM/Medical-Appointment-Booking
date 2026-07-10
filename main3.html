@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARRY MultiSpeciality Hospital</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="carousel.css"> <!-- Include the carousel styles -->
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="hospitallogo.jpeg" alt="Hospital Logo">
+            <h1>HARRY MultiSpeciality Hospital</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Doctors</a></li>
+                <li><a href="#">Book Appointment</a></li>
+                <li><a href="#">Financial Aid</a></li>
+                <li><a href="#">Donations</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li class="user-profile">
+                    <img src="userprofile.jpeg" alt="User Profile">
+                    <ul class="dropdown">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Booking History</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h2>Welcome to HARRY MultiSpeciality Hospital</h2>
+            <p>Your health, our priority. Book your appointment now!</p>
+            <a href="#" class="cta-button">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- Carousel Slider Section -->
+    <section class="carousel-section">
+        <div class="slider-wrap">
+            <button class="nav-button left" onclick="moveSlide(-1)">&lt;</button>
+            <button class="nav-button right" onclick="moveSlide(1)">&gt;</button>
+            <div class="slider" id="slider">
+                <div class="slide">
+                    <img src="https://example.com/image1.jpg" alt="Image 1">
+                    <div class="slide-content">
+                        <div class="date-author">Date | Author</div>
+                        <div class="title">Title 1</div>
+                        <div class="categories">Category 1</div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://example.com/image2.jpg" alt="Image 2">
+                    <div class="slide-content">
+                        <div class="date-author">Date | Author</div>
+                        <div class="title">Title 2</div>
+                        <div class="categories">Category 2</div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://example.com/image3.jpg" alt="Image 3">
+                    <div class="slide-content">
+                        <div class="date-author">Date | Author</div>
+                        <div class="title">Title 3</div>
+                        <div class="categories">Category 3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 HARRY MultiSpeciality Hospital | All rights reserved</p>
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            const slider = document.getElementById('slider');
+            slider.style.transform = `translateX(${-index * 100}%)`;
+            updatePagination(index);
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function updatePagination(index) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === index) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    currentSlide = i;
+                    showSlide(currentSlide);
+                });
+                pagination.appendChild(dot);
+            }
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
+

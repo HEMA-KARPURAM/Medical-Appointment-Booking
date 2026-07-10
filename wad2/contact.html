@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Clinic/Hospital</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="header">  <img src="logo.jpeg" weight="55" height="55",align="left">
+        <h1>HARRY MultiSpeciality Hospital</h1> </div>
+<main>
+        <section id="contact-form-section">
+            <h2>Contact Us </h2>
+            <form id="contact-form" onsubmit="return confirmSubmission();">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" ></textarea>
+                <center><button type="submit">Send</button></center> 
+            </form>
+        </section>
+        <section id="contact-info">
+           <h2 >Contact Information</h2> 
+            <p><strong>Phone:</strong> +91 864 2233 456 </p>
+            <p><strong>Email:</strong> harryhospital@gmail.com</p>
+            <p><strong>Address:</strong>45 Amaravati Main Road, Amaravati, Andhra Pradesh, 522503</p>
+        </section>
+        <section id="map">
+            <left><h2>Our Location</h2></left>
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.727185061449!2d80.51515861476343!3d16.51001348861498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e571f9a9abff%3A0x123456789abcdef0!2s45%20Amaravati%20Main%20Road%2C%20Amaravati%2C%20Andhra%20Pradesh%2C%20522503!5e0!3m2!1sen!2sin!4v1699452871350!5m2!1sen!2sin" 
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </section>
+    </main>
+
+    <script>
+        function confirmSubmission() {
+            alert("Thank you for contacting us! Your message has been sent.");
+            return false; 
+        }
+    </script>
+    <footer>
+
+        <p>© 2024 SAHAJ MultiSpeciality Hospital | All rights reserved</p>
+
+        <div class="social-media">
+
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

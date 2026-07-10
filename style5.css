@@ -1,0 +1,29 @@
+.donations-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .donations-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 150px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 5;
+      border-radius: 8px;
+    }
+
+    .donations-dropdown-content a {
+      color: #333;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .donations-dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .donations-dropdown:hover .donations-dropdown-content {
+      display: block;
+    }

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>organdonation</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="header">  <img src="logo.jpeg" weight="55" height="55",align="left">
+        <h1>HARRY MultiSpeciality Hospital</h1> </div>
+        <h2>ORGAN DONATION CARD FORM</h2>
+    <div>
+        <h3>Please be aware that this Organ Donor Card is not a living donor card there are no such things as living donor cards.</h3>
+        <div>
+            <form id="contact-form" onsubmit="return confirmSubmission();">
+                <label for="name">Full Name( As it appears on government issued identity card)</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="name">Mother's/Father's Names</label>
+                <input type="text" id="name" name="name" required><br>
+                
+                <label for="Address">Current Residential Address</label>
+                <textarea id="Address" name="Address" ></textarea>
+
+                <label for="Address"> Address 2</label>
+                <textarea id="Address" name="Address" ></textarea><br>
+
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="District">District</label>
+                <input type="text" id="District" name="District" required>
+                
+                <label for="State">State</label>
+                <input type="text" id="State" name="State" required><br>
+
+                <label for="pin code">Pin code:</label>
+                <input type="number" id="pin code" name="pin code" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phonenumber" required>
+
+                <label for="Occupation">Occupation</label>
+                <select name='Menu'>
+                <option value='select'> ---select---<br>
+                <option value='Student'>Student<br>
+                <option value='Business'>Business<br>
+                <option value='Professional'>Professional<br>
+                <option value='Slef Employed'>Slef Employed<br>
+                <option value='Government Employee'>Government Employee<br> 
+                <option value='Armed Forces'>Armed Forces<br>
+                <option value='Retired'>Retired<br>
+                <option value='Home maker'>Home maker<br>
+                <option value='others'>others<br> 
+                </option>
+                </select><br>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required><br>
+
+                <label for="Gender">Gender</label>
+                <select name='Menu'>
+                <option value='select'> ---select---<br>
+                <option value='Gender'>Male<br>
+                <option value='Gender'>Female<br>
+                <option value='others'>others<br> 
+                </option>
+                </select>
+
+                <label for="blood-type">Blood type</label>
+                <select name='Menu'>
+                <option value='select'> ---select---<br>
+                <option value='Student'>A+<br>
+                <option value='Business'>A-<br>
+                <option value='Professional'>B+<br>
+                <option value='Slef Employed'>B-<br>
+                <option value='Government Employee'>AB+<br> 
+                <option value='Armed Forces'>AB-<br>
+                <option value='Retired'>O+<br>
+                <option value='Home maker'>O-<br>
+                </option>
+               </select>
+
+               <label for="name">Emergency contact Name:</label>
+               <input type="text" id="name" name="name" required><br>
+
+               <label for="phone">Emergency contact Number:</label>
+                <input type="tel" id="phone" name="phonenumber" required>
+
+               
+               <label for="Address">Emergency contact Address</label>
+               <textarea id="Address" name="Address" ></textarea><br>
+
+               <label for="Aadhar number">Enter Your Aadhar number</label>
+               <input type="number" id="identity" name="aadhar number" required><br>
+
+               <br>Organs that I wish to donate :
+               <input type='radio' name='All Organs'>All Organs
+               <input type='radio' name='Corneas'>Corneas (Eyes)
+               <input type='radio' name='Kidneys'>Kidneys
+               <input type='radio' name='Heart'>Heart
+               <input type='radio' name='Lungs'>Lungs
+               <input type='radio' name='Liver'>Liver
+               <input type='radio' name='Pancreas'>Pancreas
+               <input type='radio' name='Skin'>Skin
+               <input type='radio' name='Hands'>Hands
+               <input type='radio' name='Small Intestine'>Small Intestine
+
+               <label >Social Media Profile Link</label>
+               <input type="text" id="identity" name="Socialmedialink" required><br>
+
+               <input type='radio' name='Hands'>I declare that I am a citizen of India and above 18 years of age.<br>
+               <input type='radio' name='Hands'>I agree to the privacy policy<a href="privacy_policy.html">Read more</a><br>
+
+               <h4>Please ensure your email address is correct to receive your donor card.</h4>
+
+            <center><button type="submit">Send</button></center> 
+            </form>
+            <script>
+                function confirmSubmission() {
+                    alert("Thank you for Donating,We will send your donoar card to your Email");
+                    return false; 
+                }
+            </script>
+            
+        </div>
+    </div>
+    <footer>
+
+        <p>© 2024 SAHAJ MultiSpeciality Hospital | All rights reserved</p>
+
+        <div class="social-media">
+
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+
+        </div>
+
+    </footer>
+</body>
+</html>

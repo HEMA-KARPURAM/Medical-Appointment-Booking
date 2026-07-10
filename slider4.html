@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel Slider with Navigation</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    /* Main container */
+    .slider-wrap {
+      width: 80%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Slider container */
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 15px;
+    }
+
+    /* Individual slide */
+    .slide {
+      min-width: 30%;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Image styling */
+    .slide img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Text content */
+    .slide-content {
+      padding: 15px;
+    }
+
+    .date-author {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 8px;
+      color: #333;
+    }
+
+    .categories {
+      font-size: 0.8rem;
+      color: #ffa500;
+      margin-top: 5px;
+    }
+
+    /* Navigation buttons */
+    .nav-button {
+      font-size: 1.5rem;
+      color: white;
+      background: #ffa500;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10;
+      user-select: none;
+      position: absolute; /* Position absolute to place outside */
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .nav-button.left {
+      left: -50px; /* Adjusted to place outside */
+    }
+
+    .nav-button.right {
+      right: -50px; /* Adjusted to place outside */
+    }
+
+    /* Pagination dots */
+    .pagination {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #ffa500;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider-wrap">
+    <!-- Navigation Buttons -->
+    <button class="nav-button left" onclick="moveSlide(-1)">&lt;</button>
+    <button class="nav-button right" onclick="moveSlide(1)">&gt;</button>
+
+    <!-- Slider container -->
+    <div class="slider" id="slider">
+      <!-- Slide 1 -->
+      <div class="slide" onclick="window.location.href='https://www.healthcareitnews.com/'">
+        <img src="img1.jpeg" alt="Healthcare Innovations">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by Healthcare Innovations</div>
+          <div class="title">Healthcare IT News: Innovations in Medical Technology</div>
+          <div class="categories">MEDICAL, INNOVATION</div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" onclick="window.location.href='https://www.medscape.com/'">
+        <img src="img2.jpeg" alt="Medscape News">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by Medscape</div>
+          <div class="title">Medscape: Latest in Surgery and Medical Innovations</div>
+          <div class="categories">SURGERY, MEDICAL NEWS</div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" onclick="window.location.href='https://www.ncbi.nlm.nih.gov/'">
+        <img src="img3.jpeg" alt="NCBI Research">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by NCBI</div>
+          <div class="title">NCBI: Cutting-Edge Research in Medicine</div>
+          <div class="categories">RESEARCH, MEDICINE</div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide" onclick="window.location.href='https://www.nejm.org/'">
+        <img src="img4.jpeg" alt="NEJM Innovations">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by NEJM</div>
+          <div class="title">NEJM: New Innovations in Surgical Procedures</div>
+          <div class="categories">SURGERY, INNOVATION</div>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide" onclick="window.location.href='https://www.the-scientist.com/'">
+        <img src="img5.jpeg" alt="The Scientist">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by The Scientist</div>
+          <div class="title">The Scientist: Advancements in Medical Science</div>
+          <div class="categories">SCIENCE, MEDICINE</div>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="slide" onclick="window.location.href='https://www.bmj.com/'">
+        <img src="img6.jpeg" alt="BMJ">
+        <div class="slide-content">
+          <div class="date-author">Nov 1, 2024 by BMJ</div>
+          <div class="title">BMJ: Surgical Techniques and Innovations</div>
+          <div class="categories">SURGERY, MEDICAL</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="pagination" id="pagination">
+      <span class="dot" onclick="setSlide(0)"></span>
+      <span class="dot" onclick="setSlide(1)"></span>
+      <span class="dot" onclick="setSlide(2)"></span>
+      <span class="dot" onclick="setSlide(3)"></span>
+      <span class="dot" onclick="setSlide(4)"></span>
+      <span class="dot" onclick="setSlide(5)"></span>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to control slider
+    let currentSlide = 0;
+    const totalSlides = document.querySelectorAll(".slide").length;
+    const slidesToShow = 3; // Number of slides shown at once
+
+    function updateSliderPosition() {
+      const slider = document.getElementById("slider");
+      slider.style.transform = `translateX(-${currentSlide * 33.33}%)`;
+      updatePagination();
+    }
+
+    function moveSlide(direction) {
+      currentSlide += direction;
+
+      // Loop around if necessary
+      if (currentSlide < 0) {
+        currentSlide = totalSlides - slidesToShow;
+      } else if (currentSlide > totalSlides - slidesToShow) {
+        currentSlide = 0;
+      }
+
+      updateSliderPosition();
+    }
+
+    function setSlide(index) {
+      currentSlide = index;
+      updateSliderPosition();
+    }
+
+    function updatePagination() {
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentSlide);
+      });
+    }
+
+    // Initial position
+    updateSliderPosition();
+  </script>
+</body>
+</html>
+
